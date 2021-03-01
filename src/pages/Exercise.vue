@@ -40,7 +40,7 @@
   	</div>
   	<div class="description q-mb-lg">
   		<p>My name is <b>{{ name }}</b> and I'm <b>{{ age }}</b> years old.</p>
-  		<p>In 10 years I will be <b>46</b>.</p>
+  		<p>In 10 years I will be <b>{{ agePlusTen }}</b>.</p>
   		<p>My name is <b>5</b> characters long.</p>
   		<p>My name in uppercase is <b>DANNY</b>.</p>
   	</div>
@@ -56,6 +56,12 @@
 			return {
 				name: '',
 				age: null
+			}
+		},
+		computed: {
+			agePlusTen() {
+				let parsed = parseInt(this.age)
+				return parsed + 10
 			}
 		}
 
