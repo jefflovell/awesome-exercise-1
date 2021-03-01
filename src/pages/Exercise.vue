@@ -42,7 +42,7 @@
   		<p>My name is <b>{{ name }}</b> and I'm <b>{{ age }}</b> years old.</p>
   		<p>In 10 years I will be <b>{{ agePlusTen }}</b>.</p>
   		<p>My name is <b>{{name.length}}</b> characters long.</p>
-  		<p>My name in uppercase is <b>DANNY</b>.</p>
+  		<p>My name in uppercase is <b>{{ name | nameUpperCase }}</b>.</p>
   	</div>
 		<div class="no-details">
 			<p>Please enter a name and age.</p>
@@ -62,6 +62,11 @@
 			agePlusTen() {
 				let parsed = parseInt(this.age)
 				return parsed + 10
+			}
+		},
+		filters: {
+			nameUpperCase(value) {
+				return value.toUpperCase()
 			}
 		}
 
