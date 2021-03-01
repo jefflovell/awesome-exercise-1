@@ -24,7 +24,9 @@
 			  type="text"
 			  v-model="name"
 			  placeholder="enter name">
-	  		<label class="error">Please enter 15 characters or less</label>
+	  		<label
+			  v-show="name.length > 15"
+			  class="error">Please enter 15 characters or less</label>
 	  	</div>
 	  	<div class="row q-mb-md">
 		  	<label>Age:</label>
@@ -32,7 +34,9 @@
 			  type="number"
 			  v-model="age"
 			  placeholder="enter age in years">
-	  		<label class="error">Please enter an age between 1 - 100</label>
+	  		<label
+			  v-show="age < 1 || age > 100"
+			  class="error">Please enter an age between 1 - 100</label>
 		  </div>
 		  <div class="row">
 		  	<button>Generate Random Person</button>
