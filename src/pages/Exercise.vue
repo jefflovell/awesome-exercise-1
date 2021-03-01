@@ -20,12 +20,18 @@
   	<div class="form q-mb-lg">
 	  	<div class="row q-mb-md">
 	  		<label>Name:</label>
-	  		<input type="text"> 
+	  		<input
+			  type="text"
+			  v-model="name"
+			  placeholder="enter name">
 	  		<label class="error">Please enter 15 characters or less</label>
 	  	</div>
 	  	<div class="row q-mb-md">
 		  	<label>Age:</label>
-		  	<input type="number">
+		  	<input
+			  type="number"
+			  v-model="age"
+			  placeholder="enter age in years">
 	  		<label class="error">Please enter an age between 1 - 100</label>
 		  </div>
 		  <div class="row">
@@ -33,7 +39,7 @@
 		  </div>
   	</div>
   	<div class="description q-mb-lg">
-  		<p>My name is <b>Danny</b> and I'm <b>36</b> years old.</p>
+  		<p>My name is <b>{{ name }}</b> and I'm <b>{{ age }}</b> years old.</p>
   		<p>In 10 years I will be <b>46</b>.</p>
   		<p>My name is <b>5</b> characters long.</p>
   		<p>My name in uppercase is <b>DANNY</b>.</p>
@@ -46,6 +52,12 @@
 
 <script>
 	export default {
+		data() {
+			return {
+				name: '',
+				age: null
+			}
+		}
 
 	}
 </script>
