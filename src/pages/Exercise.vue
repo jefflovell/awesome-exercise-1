@@ -131,7 +131,7 @@
 		},
 		beforeCreate() {
 			console.log('++++ BEFORE CREATE ++++')
-			this.randomPerson()
+
 		},
 		created() {
 			console.log('++++ CREATED ++++')
@@ -141,6 +141,7 @@
 		},
 		mounted() {
 			console.log('++++ MOUNTED ++++')
+			this.randomPerson()
 		},
 		updated() {
 			console.log('++++ UPDATED ++++')
