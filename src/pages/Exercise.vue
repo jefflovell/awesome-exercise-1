@@ -23,6 +23,7 @@
 	  		<input
 			  type="text"
 			  v-model="name"
+			  v-bind:class="{ 'error' : name.length > 15 }"
 			  placeholder="enter name">
 	  		<label
 			  v-show="name.length > 15"
@@ -33,6 +34,7 @@
 		  	<input
 			  type="number"
 			  v-model="age"
+			  v-bind:class="{ 'error' : age < 1 || age > 100 }"
 			  placeholder="enter age in years">
 	  		<label
 			  v-show="age < 1 || age > 100"
