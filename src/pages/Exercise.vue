@@ -41,7 +41,7 @@
 			  class="error">Please enter an age between 1 - 100</label>
 		  </div>
 		  <div class="row">
-		  	<button>Generate Random Person</button>
+		  	<button @click="randomPerson">Generate Random Person</button>
 		  </div>
   	</div>
   	<div
@@ -64,8 +64,39 @@
 	export default {
 		data() {
 			return {
-				name: '',
-				age: null
+				name: "Muad'Dib",
+				age: 16
+			}
+		},
+		methods: {
+			randomPerson() {
+				const ageMin = 1
+				const ageMax = 100
+				const namesArr = [
+					'Paul',
+					'Duncan',
+					'Leto',
+					'Jamis',
+					'Chani',
+					'Alia',
+					'Jessica',
+					'Feyd',
+					'Irulan',
+					'Liet',
+					'Stilgar',
+					'Gurney',
+					'Thufir',
+					'Vladimir',
+					'Rabban',
+					'Piter',
+					'Shadout',
+					'Harah',
+					'Korba'
+				]
+				let ageRand = Math.floor(Math.random() * (ageMax - ageMin + 1) + ageMin)
+				let nameRand = namesArr[Math.floor(Math.random() * namesArr.length)]
+				this.name = nameRand
+				this.age = ageRand
 			}
 		},
 		computed: {
