@@ -64,16 +64,15 @@
 <script>
 	export default {
 		data() {
+			console.log('++++ DATA OBJECT LOADED ++++')
 			return {
-				name: "Muad'Dib",
-				age: 16
+				name: "hi",
+				age: 3
 			}
 		},
 		methods: {
-			randomPerson() {
-				const ageMin = 1
-				const ageMax = 100
-				const namesArr = [
+			randomName() {
+				let namesArr = [
 					'Paul',
 					'Duncan',
 					'Leto',
@@ -92,13 +91,25 @@
 					'Piter',
 					'Shadout',
 					'Harah',
-					'Korba'
-				]
-				let ageRand = Math.floor(Math.random() * (ageMax - ageMin + 1) + ageMin)
-				let nameRand = namesArr[Math.floor(Math.random() * namesArr.length)]
-				this.name = nameRand
-				this.age = ageRand
+					'Korba']
+				let computedName = namesArr[Math.floor(Math.random() * namesArr.length)]
+				this.name = computedName
+				console.log('random name generated: ' + computedName)
+			},
+			randomAge() {
+				let ageMin = 1
+				let ageMax = 100
+				let computedAge = Math.floor(Math.random() * (ageMax - ageMin + 1) + ageMin)
+				this.age = computedAge
+				console.log('random age generated: ' + computedAge)
+			},
+			randomPerson() {
+				console.log('random person generated')
+				console.log('=======================')
+				this.randomName()
+				this.randomAge()
 			}
+
 		},
 		computed: {
 			agePlusTen() {
@@ -117,7 +128,30 @@
 					el.focus()
 				}
 			}
+		},
+		beforeCreate() {
+			console.log('++++ BEFORE CREATE ++++')
+		},
+		created() {
+			console.log('++++ CREATED ++++')
+		},
+		beforeMount() {
+			console.log('++++ BEFORE MOUNT ++++')
+		},
+		mounted() {
+			console.log('++++ MOUNTED ++++')
+			this.randomPerson()
+		},
+		updated() {
+			console.log('++++ UPDATED ++++')
+		},
+		beforeDestroy() {
+			console.log('++++ BEFORE DESTROY ++++')
+		},
+		destroyed() {
+			console.log('++++ DESTROYED ++++')
 		}
+
 	}
 </script>
 
