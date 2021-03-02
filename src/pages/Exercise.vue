@@ -66,8 +66,8 @@
 		data() {
 			console.log('++++ DATA OBJECT LOADED ++++')
 			return {
-				name: "hi",
-				age: 3
+				name: "",
+				age: null
 			}
 		},
 		methods: {
@@ -131,6 +131,7 @@
 		},
 		beforeCreate() {
 			console.log('++++ BEFORE CREATE ++++')
+			this.randomPerson()
 		},
 		created() {
 			console.log('++++ CREATED ++++')
@@ -140,7 +141,6 @@
 		},
 		mounted() {
 			console.log('++++ MOUNTED ++++')
-			this.randomPerson()
 		},
 		updated() {
 			console.log('++++ UPDATED ++++')
