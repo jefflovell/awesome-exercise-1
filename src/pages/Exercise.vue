@@ -22,9 +22,10 @@
 	  		<label>Name:</label>
 	  		<input
 			  type="text"
+			  placeholder="enter name"
 			  v-model="name"
 			  v-bind:class="{ 'error' : name.length > 15 }"
-			  placeholder="enter name">
+			  v-autofocus>
 	  		<label
 			  v-show="name.length > 15"
 			  class="error">Please enter 15 characters or less</label>
@@ -33,9 +34,9 @@
 		  	<label>Age:</label>
 		  	<input
 			  type="number"
+			  placeholder="enter age in years"
 			  v-model="age"
-			  v-bind:class="{ 'error' : age < 1 || age > 100 }"
-			  placeholder="enter age in years">
+			  v-bind:class="{ 'error' : age < 1 || age > 100 }">
 	  		<label
 			  v-show="age < 1 || age > 100"
 			  class="error">Please enter an age between 1 - 100</label>
@@ -109,8 +110,14 @@
 			nameUpperCase(value) {
 				return value.toUpperCase()
 			}
+		},
+		directives: {
+			autofocus: {
+				inserted(el) {
+					el.focus()
+				}
+			}
 		}
-
 	}
 </script>
 
