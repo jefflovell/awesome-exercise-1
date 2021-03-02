@@ -64,10 +64,9 @@
 <script>
 	export default {
 		data() {
-			console.log('++++ DATA OBJECT LOADED ++++')
 			return {
-				name: "",
-				age: null
+				name: 'Muad\'Dib',
+				age: 16
 			}
 		},
 		methods: {
@@ -91,21 +90,17 @@
 					'Piter',
 					'Shadout',
 					'Harah',
-					'Korba']
-				let computedName = namesArr[Math.floor(Math.random() * namesArr.length)]
-				this.name = computedName
-				console.log('random name generated: ' + computedName)
+					'Korba',
+					'Usul',
+					'Muad\'Dib']
+				this.name = namesArr[Math.floor(Math.random() * namesArr.length)]
 			},
 			randomAge() {
 				let ageMin = 1
 				let ageMax = 100
-				let computedAge = Math.floor(Math.random() * (ageMax - ageMin + 1) + ageMin)
-				this.age = computedAge
-				console.log('random age generated: ' + computedAge)
+				this.age = Math.floor(Math.random() * (ageMax - ageMin + 1) + ageMin)
 			},
 			randomPerson() {
-				console.log('random person generated')
-				console.log('=======================')
 				this.randomName()
 				this.randomAge()
 			}
@@ -129,28 +124,8 @@
 				}
 			}
 		},
-		beforeCreate() {
-			console.log('++++ BEFORE CREATE ++++')
-
-		},
-		created() {
-			console.log('++++ CREATED ++++')
-		},
-		beforeMount() {
-			console.log('++++ BEFORE MOUNT ++++')
-		},
 		mounted() {
-			console.log('++++ MOUNTED ++++')
 			this.randomPerson()
-		},
-		updated() {
-			console.log('++++ UPDATED ++++')
-		},
-		beforeDestroy() {
-			console.log('++++ BEFORE DESTROY ++++')
-		},
-		destroyed() {
-			console.log('++++ DESTROYED ++++')
 		}
 
 	}
